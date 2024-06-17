@@ -1,0 +1,76 @@
+name: Seasonal scheduled post
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "00 02 20 Mar,Jun,Sep,Dec *"
+
+jobs:
+  scheduled-post:
+    runs-on: ubuntu-latest
+    name: Write scheduled post
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set post title and dates
+        run: |
+          MONTH=$(date +%m)
+          YEAR=$(date +%Y)
+
+          declare -A SEASONS=(
+            ["03"]="Winter"
+            ["06"]="Spring"
+            ["09"]="Summer"
+            ["12"]="Fall"
+          )
+
+          set_env_vars() {
+            local season=$1
+            local start_date=$2
+            local end_date=$3
+            local post_title=""
+
+            if [ "$season" = "Winter" ]; then
+              post_title="$(($YEAR - 1))/${YEAR} ${season}"
+            else
+              post_title="${YEAR} ${season}"
+            fi
+
+            echo "POST_TITLE=${post_title}" >> $GITHUB_ENV
+            echo "START_DATE=${start_date}" >> $GITHUB_ENV
+            echo "END_DATE=${end_date}" >> $GITHUB_ENV
+          }
+
+          case $MONTH in
+            "03")
+              set_env_vars ${SEASONS[$MONTH]} "$(($YEAR - 1))-12-21" "${YEAR}-03-20"
+              ;;
+            "06")
+              set_env_vars ${SEASONS[$MONTH]} "${YEAR}-03-21" "${YEAR}-06-20"
+              ;;
+            "09")
+              set_env_vars ${SEASONS[$MONTH]} "${YEAR}-06-21" "${YEAR}-09-20"
+              ;;
+            "12")
+              set_env_vars ${SEASONS[$MONTH]} "${YEAR}-09-21" "${YEAR}-12-20"
+              ;;
+          esac
+      - name: Write scheduled post
+        uses: ./
+        with:
+          github-username: katydecorah
+          github-repository: archive
+          source-bookmarks: recipes|_data/recipes.json
+          book-tags: "recommend,skip"
+          start-date: ${{ env.START_DATE }}
+          end-date: ${{ env.END_DATE }}
+          post-title: ${{ env.POST_TITLE }}
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+      - name: Commit files
+        run: |
+          git pull
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A && git commit -m "${{ env.POST_TITLE }}"
+          git push

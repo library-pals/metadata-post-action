@@ -1,0 +1,42 @@
+name: Uses a custom markdown template (`post-template`) and customizes the `posts-directory`, with a manual workflow trigger.
+
+on:
+  workflow_dispatch:
+    inputs:
+      start-date:
+        description: "The start date for the post in the format YYYY-MM-DD"
+        type: string
+        required: true
+      end-date:
+        description: "The end date for the post in the format YYYY-MM-DD"
+        type: string
+        required: true
+      post-title:
+        description: "The title of the post"
+        type: string
+        required: true
+
+jobs:
+  scheduled-post:
+    runs-on: ubuntu-latest
+    name: Write scheduled post
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Write scheduled post
+        uses: ./
+        with:
+          github-username: katydecorah
+          github-repository: archive
+          post-template: .github/actions/post-template-basic.md
+          posts-directory: books/
+          source-bookmarks: recipes|_data/recipes.json
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+      - name: Commit files
+        run: |
+          git pull
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A && git commit -m "${{ env.title }}"
+          git push

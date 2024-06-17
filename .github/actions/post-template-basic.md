@@ -1,0 +1,7 @@
+# ${title} Books
+
+${bookMarkdown}
+
+---
+
+${radomVarThatWontWork}

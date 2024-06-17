@@ -1,0 +1,33 @@
+name: Scheduled post
+
+# Grant the action permission to write to the repository
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  schedule:
+    - cron: "00 02 20 Mar,Jun,Sep,Dec *"
+
+jobs:
+  scheduled-post:
+    runs-on: ubuntu-latest
+    name: Write scheduled post
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Write scheduled post
+        uses: ./
+        with:
+          github-username: katydecorah
+          github-repository: archive
+          source-bookmarks: recipes|_data/recipes.json
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+      - name: Commit files
+        run: |
+          git pull
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A && git commit -m "${{ env.title }}"
+          git push

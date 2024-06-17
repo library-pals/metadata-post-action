@@ -1,0 +1,37 @@
+name: Document GitHub action
+
+on:
+  push:
+    paths:
+      - ".github/workflows/scheduled.yml"
+      - ".github/workflows/scheduled-advanced.yml"
+      - ".github/workflows/scheduled-own-template.yml"
+      - ".github/workflows/documentation.yml"
+      - "action.yml"
+      - "package.json"
+      - "README.md"
+
+permissions:
+  contents: write
+
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    name: Write documentation
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Documentation action
+        id: documentation
+        uses: katydecorah/documentation-action@v1.5.0
+        with:
+          example-workflow-file: "scheduled.yml"
+          additional-workflow-file-prefix: "scheduled"
+      - name: Commit files
+        if: steps.documentation.outputs.update == 'true'
+        run: |
+          git pull
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Update documentation"
+          git push
