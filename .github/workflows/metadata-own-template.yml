@@ -17,13 +17,13 @@ on:
         required: true
 
 jobs:
-  scheduled-post:
+  metadata-post:
     runs-on: ubuntu-latest
-    name: Write scheduled post
+    name: Write metadata post
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Write scheduled post
+      - name: Write metadata post
         uses: ./
         with:
           github-username: katydecorah
