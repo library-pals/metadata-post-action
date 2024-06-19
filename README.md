@@ -24,11 +24,11 @@ on:
   workflow_dispatch:
     inputs:
       post-title:
-        description: Title of the post
+        description: The title of the post. This can be set as an action input or workflow input.
       start-end:
-        description: Start date of the post (when to start collecting data). Use the format YYYY-MM-DD.
+        description: The start date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
       end-date:
-        description: End date of the post (when to stop collecting data and the date of the post). Use the format YYYY-MM-DD.
+        description: The end date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
 
 jobs:
   metadata-post:
@@ -222,9 +222,9 @@ To trigger the action, [create a workflow dispatch event](https://docs.github.co
 {
   "ref": "main", // Required. The git reference for the workflow, a branch or tag name.
   "inputs": {
-    "post-title": "", // Title of the post
-    "start-end": "", // Start date of the post (when to start collecting data). Use the format YYYY-MM-DD.
-    "end-date": "", // End date of the post (when to stop collecting data and the date of the post). Use the format YYYY-MM-DD.
+    "post-title": "", // The title of the post. This can be set as an action input or workflow input.
+    "start-end": "", // The start date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
+    "end-date": "", // The end date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
   }
 }
 ```
