@@ -3,11 +3,16 @@ name: Create metadata post
 # Grant the action permission to write to the repository
 permissions:
   contents: write
-  pull-requests: write
 
 on:
-  schedule:
-    - cron: "00 02 20 Mar,Jun,Sep,Dec *"
+  workflow_dispatch:
+    inputs:
+      post-title:
+        description: The title of the post. This can be set as an action input or workflow input.
+      start-end:
+        description: The start date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
+      end-date:
+        description: The end date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
 
 jobs:
   metadata-post:

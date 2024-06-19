@@ -19,11 +19,16 @@ name: Create metadata post
 # Grant the action permission to write to the repository
 permissions:
   contents: write
-  pull-requests: write
 
 on:
-  schedule:
-    - cron: "00 02 20 Mar,Jun,Sep,Dec *"
+  workflow_dispatch:
+    inputs:
+      post-title:
+        description: Title of the post
+      start-end:
+        description: Start date of the post (when to start collecting data). Use the format YYYY-MM-DD.
+      end-date:
+        description: End date of the post (when to stop collecting data and the date of the post). Use the format YYYY-MM-DD.
 
 jobs:
   metadata-post:
@@ -208,4 +213,20 @@ jobs:
 - `end-date`: The end date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
 
 - `post-title`: The title of the post. This can be set as an action input or workflow input.
+
+## Trigger the action
+
+To trigger the action, [create a workflow dispatch event](https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event) with the following body parameters:
+
+```js
+{
+  "ref": "main", // Required. The git reference for the workflow, a branch or tag name.
+  "inputs": {
+    "post-title": "", // Title of the post
+    "start-end": "", // Start date of the post (when to start collecting data). Use the format YYYY-MM-DD.
+    "end-date": "", // End date of the post (when to stop collecting data and the date of the post). Use the format YYYY-MM-DD.
+  }
+}
+```
+
 <!-- END GENERATED DOCUMENTATION -->
