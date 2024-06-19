@@ -40,8 +40,8 @@ jobs:
       - name: Write metadata post
         uses: library-pals/metadata-post-action@v0.0.0
         with:
-          github-username: katydecorah
-          github-repository: archive
+          github-username: library-pals
+          github-repository: sample-site
           source-bookmarks: recipes|_data/recipes.json
         env:
           TOKEN: ${{ secrets.TOKEN }}
@@ -61,6 +61,10 @@ jobs:
 
 ```yml
 name: Seasonal metadata post
+
+# Grant the action permission to write to the repository
+permissions:
+  contents: write
 
 on:
   workflow_dispatch:
@@ -120,8 +124,8 @@ jobs:
       - name: Write metadata post
         uses: library-pals/metadata-post-action@v0.0.0
         with:
-          github-username: katydecorah
-          github-repository: archive
+          github-username: library-pals
+          github-repository: sample-site
           source-bookmarks: recipes|_data/recipes.json
           book-tags: "recommend,skip"
           start-date: ${{ env.START_DATE }}
@@ -145,6 +149,10 @@ jobs:
 
 ```yml
 name: Uses a custom markdown template (`post-template`) and customizes the `posts-directory`, with a manual workflow trigger.
+
+# Grant the action permission to write to the repository
+permissions:
+  contents: write
 
 on:
   workflow_dispatch:
@@ -172,8 +180,8 @@ jobs:
       - name: Write metadata post
         uses: library-pals/metadata-post-action@v0.0.0
         with:
-          github-username: katydecorah
-          github-repository: archive
+          github-username: library-pals
+          github-repository: sample-site
           post-template: .github/actions/post-template-basic.md
           posts-directory: books/
           source-bookmarks: recipes|_data/recipes.json

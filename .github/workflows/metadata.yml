@@ -24,8 +24,8 @@ jobs:
       - name: Write metadata post
         uses: ./
         with:
-          github-username: katydecorah
-          github-repository: archive
+          github-username: library-pals
+          github-repository: sample-site
           source-bookmarks: recipes|_data/recipes.json
         env:
           TOKEN: ${{ secrets.TOKEN }}

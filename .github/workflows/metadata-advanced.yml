@@ -1,5 +1,9 @@
 name: Seasonal metadata post
 
+# Grant the action permission to write to the repository
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
   schedule:
@@ -58,8 +62,8 @@ jobs:
       - name: Write metadata post
         uses: ./
         with:
-          github-username: katydecorah
-          github-repository: archive
+          github-username: library-pals
+          github-repository: sample-site
           source-bookmarks: recipes|_data/recipes.json
           book-tags: "recommend,skip"
           start-date: ${{ env.START_DATE }}
