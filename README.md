@@ -159,10 +159,10 @@ jobs:
 </details>
 
 <details>
-<summary>Uses a custom markdown template (`post-template`) and customizes the `posts-directory`, with a manual workflow trigger.</summary>
+<summary>Uses a custom markdown template with post-template and sets the posts-directory</summary>
 
 ```yml
-name: Uses a custom markdown template (`post-template`) and customizes the `posts-directory`, with a manual workflow trigger.
+name: Uses a custom markdown template with post-template and sets the posts-directory
 
 # Grant the action permission to write to the repository
 permissions:
