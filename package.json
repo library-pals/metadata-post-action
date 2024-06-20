@@ -1,6 +1,6 @@
 {
   "name": "metadata-post-action",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A GitHub action that creates a metadata post from data files.",
   "main": "dist/index.js",
   "type": "module",
