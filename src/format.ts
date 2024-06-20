@@ -16,7 +16,7 @@ export function formatBooks({ bookKeyName, bookData, start, end }) {
 
   const books: Book[] = filterData(bookData, "dateFinished", start, end)
     .filter((book) => !book.tags?.includes("hide"))
-    .map(({ title, authors, link, isbn, tags }) => {
+    .map(({ title, authors, link, isbn, tags, image }) => {
       tags =
         bookTags.length > 0
           ? tags?.filter((tag) => bookTags.includes(tag))
@@ -25,6 +25,7 @@ export function formatBooks({ bookKeyName, bookData, start, end }) {
         title,
         authors: authors.join(", "),
         url: link,
+        image,
         isbn,
         ...(tags?.length && { tags }),
       };
