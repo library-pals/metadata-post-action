@@ -38,7 +38,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Write metadata post
-        uses: library-pals/metadata-post-action@v0.0.0
+        uses: library-pals/metadata-post-action@v0.1.0
         with:
           github-username: library-pals
           github-repository: sample-site
@@ -139,7 +139,7 @@ jobs:
               ;;
           esac
       - name: Write metadata post
-        uses: library-pals/metadata-post-action@v0.0.0
+        uses: library-pals/metadata-post-action@v0.1.0
         with:
           github-username: library-pals
           github-repository: sample-site
@@ -195,7 +195,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Write metadata post
-        uses: library-pals/metadata-post-action@v0.0.0
+        uses: library-pals/metadata-post-action@v0.1.0
         with:
           github-username: library-pals
           github-repository: sample-site
