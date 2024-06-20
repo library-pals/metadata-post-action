@@ -79,10 +79,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set post title and dates
+        id: set-season
         run: |
+          # Get the current month and year
           MONTH=$(date +%m)
           YEAR=$(date +%Y)
 
+          # Define the seasons and corresponding emojis
           declare -A SEASONS=(
             ["03"]="Winter"
             ["06"]="Spring"
@@ -90,7 +93,15 @@ jobs:
             ["12"]="Fall"
           )
 
-          set_env_vars() {
+          declare -A SEASON_EMOJI=(
+            ["Winter"]="❄️"
+            ["Spring"]="🌷"
+            ["Summer"]="☀️"
+            ["Fall"]="🍂"
+          )
+
+          # Function to set environment variables based on the season
+          set_environment_variables_for_season() {
             local season=$1
             local start_date=$2
             local end_date=$3
@@ -102,23 +113,29 @@ jobs:
               post_title="${YEAR} ${season}"
             fi
 
-            echo "POST_TITLE=${post_title}" >> $GITHUB_ENV
-            echo "START_DATE=${start_date}" >> $GITHUB_ENV
-            echo "END_DATE=${end_date}" >> $GITHUB_ENV
+            echo "POST_TITLE=${post_title}" >> $GITHUB_OUTPUT
+            echo "START_DATE=${start_date}" >> $GITHUB_OUTPUT
+            echo "END_DATE=${end_date}" >> $GITHUB_OUTPUT
+            echo "SEASON_EMOJI=${SEASON_EMOJI[$season]}" >> $GITHUB_OUTPUT
           }
 
+          # Set environment variables based on the current month
           case $MONTH in
             "03")
-              set_env_vars ${SEASONS[$MONTH]} "$(($YEAR - 1))-12-21" "${YEAR}-03-20"
+              set_environment_variables_for_season ${SEASONS[$MONTH]} "$(($YEAR - 1))-12-21" "${YEAR}-03-20"
               ;;
             "06")
-              set_env_vars ${SEASONS[$MONTH]} "${YEAR}-03-21" "${YEAR}-06-20"
+              set_environment_variables_for_season ${SEASONS[$MONTH]} "${YEAR}-03-21" "${YEAR}-06-20"
               ;;
             "09")
-              set_env_vars ${SEASONS[$MONTH]} "${YEAR}-06-21" "${YEAR}-09-20"
+              set_environment_variables_for_season ${SEASONS[$MONTH]} "${YEAR}-06-21" "${YEAR}-09-20"
               ;;
             "12")
-              set_env_vars ${SEASONS[$MONTH]} "${YEAR}-09-21" "${YEAR}-12-20"
+              set_environment_variables_for_season ${SEASONS[$MONTH]} "${YEAR}-09-21" "${YEAR}-12-20"
+              ;;
+            *)
+              echo "Invalid month: $MONTH" >&2
+              exit 1
               ;;
           esac
       - name: Write metadata post
@@ -128,9 +145,9 @@ jobs:
           github-repository: sample-site
           source-bookmarks: recipes|_data/recipes.json
           book-tags: "recommend,skip"
-          start-date: ${{ env.START_DATE }}
-          end-date: ${{ env.END_DATE }}
-          post-title: ${{ env.POST_TITLE }}
+          start-date: ${{ steps.set-season.outputs.START_DATE }}
+          end-date: ${{ steps.set-season.outputs.END_DATE }}
+          post-title: ${{ steps.set-season.outputs.POST_TITLE }}
         env:
           TOKEN: ${{ secrets.TOKEN }}
       - name: Commit files
@@ -138,7 +155,7 @@ jobs:
           git pull
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -A && git commit -m "${{ env.POST_TITLE }}"
+          git add -A && git commit -m "${{steps.set-season.outputs.SEASON_EMOJI}} ${{ steps.set-season.outputs.POST_TITLE }}"
           git push
 ```
 
