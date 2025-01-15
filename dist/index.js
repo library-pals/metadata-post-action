@@ -51066,7 +51066,7 @@ function getTemplate() {
             try {
                 return yield (0,promises_namespaceObject.readFile)(templatePath, "utf8");
             }
-            catch (error) {
+            catch (_a) {
                 (0,core.warning)(`Could not find template file "${templatePath}". Using default template.`);
             }
         }
