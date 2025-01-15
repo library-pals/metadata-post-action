@@ -1,7 +1,8 @@
 import { getDataFile } from "../get-data-file";
+import repoContentsYml from "./fixtures/repo-contents-yml.json";
 
 let mockGetContents = Promise.resolve({
-  data: require("./fixtures/repo-contents-yml.json"),
+  data: repoContentsYml,
 });
 
 jest.mock("@actions/core");

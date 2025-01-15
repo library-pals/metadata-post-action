@@ -87,7 +87,7 @@ async function getTemplate() {
   if (templatePath) {
     try {
       return await readFile(templatePath, "utf8");
-    } catch (error) {
+    } catch {
       warning(
         `Could not find template file "${templatePath}". Using default template.`
       );
