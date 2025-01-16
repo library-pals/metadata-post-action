@@ -9,7 +9,7 @@ on:
     inputs:
       post-title:
         description: The title of the post. This can be set as an action input or workflow input.
-      start-end:
+      start-date:
         description: The start date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
       end-date:
         description: The end date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
