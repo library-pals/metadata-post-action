@@ -54,6 +54,12 @@ export function formatPlaylist({ playlistData, title }) {
   const playlist: Playlist = playlistData.find(
     ({ playlist }) => playlist === title
   );
+  if (!playlist || !playlist.tracks) {
+    return {
+      playlistYaml: "",
+      playlistMarkdown: "",
+    };
+  }
   return {
     playlistYaml: dump(playlist),
     playlistMarkdown: playlist.tracks
