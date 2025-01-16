@@ -1,9 +1,9 @@
 import { writeFile, readFile } from "fs/promises";
 import { getInput, setFailed, warning } from "@actions/core";
-import { buildPost } from "./build-post";
-import { formatPlaylist, formatBookmarks, formatBooks } from "./format";
-import { getDataFile } from "./get-data-file";
-import { getJsonFile } from "./get-json-file";
+import { buildPost } from "./build-post.js";
+import { formatPlaylist, formatBookmarks, formatBooks } from "./format.js";
+import { getDataFile } from "./get-data-file.js";
+import { getJsonFile } from "./get-json-file.js";
 import { join } from "path";
 import * as github from "@actions/github";
 
