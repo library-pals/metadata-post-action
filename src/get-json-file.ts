@@ -1,6 +1,6 @@
 import { Buffer } from "buffer";
 import { Octokit } from "octokit";
-import { DataFile } from "./format";
+import { DataFile } from "./format.js";
 import { getInput } from "@actions/core";
 
 export const octokit = new Octokit({

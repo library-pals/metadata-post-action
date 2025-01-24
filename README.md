@@ -22,7 +22,7 @@ on:
     inputs:
       post-title:
         description: The title of the post. This can be set as an action input or workflow input.
-      start-end:
+      start-date:
         description: The start date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
       end-date:
         description: The end date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
@@ -245,7 +245,7 @@ To trigger the action, [create a workflow dispatch event](https://docs.github.co
   "ref": "main", // Required. The git reference for the workflow, a branch or tag name.
   "inputs": {
     "post-title": "", // The title of the post. This can be set as an action input or workflow input.
-    "start-end": "", // The start date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
+    "start-date": "", // The start date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
     "end-date": "", // The end date for the post. The format is `YYYY-MM-DD`. This can be set as an action input or workflow input.
   }
 }
