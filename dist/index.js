@@ -51706,6 +51706,7 @@ function formatPlaylist({ playlistData, title }) {
         };
     }
     const playlist = playlistData.find(({ playlist }) => playlist === title);
+    // istanbul ignore next
     if (!playlist || !playlist.tracks) {
         return {
             playlistYaml: "",
