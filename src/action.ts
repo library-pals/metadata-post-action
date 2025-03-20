@@ -7,11 +7,9 @@ import { getJsonFile } from "./get-json-file.js";
 import { join } from "path";
 import * as github from "@actions/github";
 
-function slugifyTitle(title: string) {
-  return title
-    .replace(/(\d{4})\/(\d{4})\s([A-Za-z]+)/, "$1-$3") // Format season titles
-    .replace(/[^a-zA-Z0-9]+/g, "-") // Replace non-alphanumeric characters with hyphens
-    .toLowerCase();
+export function slugifyTitle(title: string) {
+  if (title.includes("/")) title = title.split("/")[1];
+  return title.replace(/\s+/g, "-").toLowerCase();
 }
 
 export async function action() {

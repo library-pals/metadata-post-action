@@ -1,4 +1,4 @@
-import { action, validateInputs } from "../action";
+import { action, validateInputs, slugifyTitle } from "../action";
 import { setFailed } from "@actions/core";
 import * as GetDataFile from "../get-data-file";
 import * as GetJsonFile from "../get-json-file";
@@ -265,5 +265,12 @@ describe("validateInputs", () => {
     expect(() =>
       validateInputs("Title", "2022-01-01", "2022-12-31")
     ).not.toThrow();
+  });
+});
+
+describe("slugifyTitle", () => {
+  it("should return a slugified version of the title", () => {
+    expect(slugifyTitle("2025 Spring")).toBe("2025-spring");
+    expect(slugifyTitle("2024/2025 Winter")).toBe("2025-winter");
   });
 });

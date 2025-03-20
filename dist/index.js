@@ -51852,10 +51852,9 @@ var github = __nccwpck_require__(3228);
 
 
 function slugifyTitle(title) {
-    return title
-        .replace(/(\d{4})\/(\d{4})\s([A-Za-z]+)/, "$1-$3") // Format season titles
-        .replace(/[^a-zA-Z0-9]+/g, "-") // Replace non-alphanumeric characters with hyphens
-        .toLowerCase();
+    if (title.includes("/"))
+        title = title.split("/")[1];
+    return title.replace(/\s+/g, "-").toLowerCase();
 }
 async function action() {
     try {
