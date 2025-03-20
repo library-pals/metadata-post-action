@@ -2,10 +2,10 @@
 
 exports[`action works 1`] = `
 [
-  "notes/_posts/2021-09-20-2021-summer.md",
+  "notes/_posts/2021-09-20-2024-winter.md",
   "---
-title: 2021 Summer
-image: 2021-summer.png
+title: 2024/2025 Winter
+image: 2024-winter.png
 books:
   - title: How to Talk So Little Kids Will Listen
     authors: Joanna Faber, Julie King
@@ -156,43 +156,10 @@ bookmarks:
     url: >-
       https://cooking.nytimes.com/recipes/1022447-everything-bagel-smoked-salmon-dip
 
-playlist: 2021 Summer
-spotify: https://open.spotify.com/playlist/5CWFqwcSoRK7AFfWH4nJyL
-tracks:
-  - track: Kill Me
-    artist: Indigo De Souza
-    album: Kill Me
-  - track: In Your Eyes (Reflection)
-    artist: Anjimile, Jay Som
-    album: Reunion
-  - track: Floating
-    artist: Lealani
-    album: Fantastic Planet
-  - track: Creature of Mine
-    artist: Billie Marten
-    album: Flora Fauna
-  - track: Take Care of Yourself
-    artist: The Childlike Empress
-    album: Take Care of Yourself
-  - track: Turned Out I Was Everyone
-    artist: SASAMI
-    album: SASAMI
-  - track: Schatze
-    artist: Ohtis, Stef Chura
-    album: Schatze b/w Failure
-  - track: Lake Song
-    artist: Deeper
-    album: Auto-Pain
-  - track: Lavender
-    artist: Biig Piig
-    album: Lavender
-  - track: Holy Holy - Demo
-    artist: Wye Oak
-    album: Holy Holy (Demo)
 
 ---
 
-The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
+The books I read, playlist I made, and bookmarks I saved during 2024/2025 Winter.
 
 ## Books
 
@@ -216,16 +183,7 @@ The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
 
 ## Playlist
 
-- Kill Me - Indigo De Souza
-- In Your Eyes (Reflection) - Anjimile, Jay Som
-- Floating - Lealani
-- Creature of Mine - Billie Marten
-- Take Care of Yourself - The Childlike Empress
-- Turned Out I Was Everyone - SASAMI
-- Schatze - Ohtis, Stef Chura
-- Lake Song - Deeper
-- Lavender - Biig Piig
-- Holy Holy - Demo - Wye Oak
+
 
 ## Bookmarks
 
@@ -500,8 +458,8 @@ The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
 
 exports[`action works, custom template 1`] = `
 [
-  "notes/_posts/2021-09-20-2021-summer.md",
-  "# 2021 Summer Books
+  "notes/_posts/2021-09-20-2024-winter.md",
+  "# 2024/2025 Winter Books
 
 - [How to Talk So Little Kids Will Listen](https://books.google.com/books/about/How_to_Talk_So_Little_Kids_Will_Listen.html?hl=&id=6WfUDQAAQBAJ) - Joanna Faber, Julie King
 - [Between the World and Me](https://play.google.com/store/books/details?id=TV05BgAAQBAJ) - Ta-Nehisi Coates (recommend)
@@ -530,10 +488,10 @@ exports[`action works, custom template 1`] = `
 
 exports[`action works, custom template missing 1`] = `
 [
-  "notes/_posts/2021-09-20-2021-summer.md",
+  "notes/_posts/2021-09-20-2024-winter.md",
   "---
-title: 2021 Summer
-image: 2021-summer.png
+title: 2024/2025 Winter
+image: 2024-winter.png
 books:
   - title: How to Talk So Little Kids Will Listen
     authors: Joanna Faber, Julie King
@@ -684,43 +642,10 @@ bookmarks:
     url: >-
       https://cooking.nytimes.com/recipes/1022447-everything-bagel-smoked-salmon-dip
 
-playlist: 2021 Summer
-spotify: https://open.spotify.com/playlist/5CWFqwcSoRK7AFfWH4nJyL
-tracks:
-  - track: Kill Me
-    artist: Indigo De Souza
-    album: Kill Me
-  - track: In Your Eyes (Reflection)
-    artist: Anjimile, Jay Som
-    album: Reunion
-  - track: Floating
-    artist: Lealani
-    album: Fantastic Planet
-  - track: Creature of Mine
-    artist: Billie Marten
-    album: Flora Fauna
-  - track: Take Care of Yourself
-    artist: The Childlike Empress
-    album: Take Care of Yourself
-  - track: Turned Out I Was Everyone
-    artist: SASAMI
-    album: SASAMI
-  - track: Schatze
-    artist: Ohtis, Stef Chura
-    album: Schatze b/w Failure
-  - track: Lake Song
-    artist: Deeper
-    album: Auto-Pain
-  - track: Lavender
-    artist: Biig Piig
-    album: Lavender
-  - track: Holy Holy - Demo
-    artist: Wye Oak
-    album: Holy Holy (Demo)
 
 ---
 
-The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
+The books I read, playlist I made, and bookmarks I saved during 2024/2025 Winter.
 
 ## Books
 
@@ -744,16 +669,7 @@ The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
 
 ## Playlist
 
-- Kill Me - Indigo De Souza
-- In Your Eyes (Reflection) - Anjimile, Jay Som
-- Floating - Lealani
-- Creature of Mine - Billie Marten
-- Take Care of Yourself - The Childlike Empress
-- Turned Out I Was Everyone - SASAMI
-- Schatze - Ohtis, Stef Chura
-- Lake Song - Deeper
-- Lavender - Biig Piig
-- Holy Holy - Demo - Wye Oak
+
 
 ## Bookmarks
 
@@ -779,10 +695,10 @@ The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
 
 exports[`action works, disable book-tags 1`] = `
 [
-  "notes/_posts/2021-09-20-2021-summer.md",
+  "notes/_posts/2021-09-20-2024-winter.md",
   "---
-title: 2021 Summer
-image: 2021-summer.png
+title: 2024/2025 Winter
+image: 2024-winter.png
 books:
   - title: How to Talk So Little Kids Will Listen
     authors: Joanna Faber, Julie King
@@ -863,7 +779,7 @@ books:
 
 ---
 
-The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
+The books I read, playlist I made, and bookmarks I saved during 2024/2025 Winter.
 
 ## Books
 
@@ -898,10 +814,10 @@ The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
 
 exports[`action works, disable bookmarks 1`] = `
 [
-  "notes/_posts/2021-09-20-2021-summer.md",
+  "notes/_posts/2021-09-20-2024-winter.md",
   "---
-title: 2021 Summer
-image: 2021-summer.png
+title: 2024/2025 Winter
+image: 2024-winter.png
 books:
   - title: How to Talk So Little Kids Will Listen
     authors: Joanna Faber, Julie King
@@ -993,43 +909,10 @@ books:
     isbn: '9781555973407'
 
 
-playlist: 2021 Summer
-spotify: https://open.spotify.com/playlist/5CWFqwcSoRK7AFfWH4nJyL
-tracks:
-  - track: Kill Me
-    artist: Indigo De Souza
-    album: Kill Me
-  - track: In Your Eyes (Reflection)
-    artist: Anjimile, Jay Som
-    album: Reunion
-  - track: Floating
-    artist: Lealani
-    album: Fantastic Planet
-  - track: Creature of Mine
-    artist: Billie Marten
-    album: Flora Fauna
-  - track: Take Care of Yourself
-    artist: The Childlike Empress
-    album: Take Care of Yourself
-  - track: Turned Out I Was Everyone
-    artist: SASAMI
-    album: SASAMI
-  - track: Schatze
-    artist: Ohtis, Stef Chura
-    album: Schatze b/w Failure
-  - track: Lake Song
-    artist: Deeper
-    album: Auto-Pain
-  - track: Lavender
-    artist: Biig Piig
-    album: Lavender
-  - track: Holy Holy - Demo
-    artist: Wye Oak
-    album: Holy Holy (Demo)
 
 ---
 
-The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
+The books I read, playlist I made, and bookmarks I saved during 2024/2025 Winter.
 
 ## Books
 
@@ -1053,16 +936,7 @@ The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
 
 ## Playlist
 
-- Kill Me - Indigo De Souza
-- In Your Eyes (Reflection) - Anjimile, Jay Som
-- Floating - Lealani
-- Creature of Mine - Billie Marten
-- Take Care of Yourself - The Childlike Empress
-- Turned Out I Was Everyone - SASAMI
-- Schatze - Ohtis, Stef Chura
-- Lake Song - Deeper
-- Lavender - Biig Piig
-- Holy Holy - Demo - Wye Oak
+
 
 ## Bookmarks
 
@@ -1073,10 +947,10 @@ The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
 
 exports[`action works, disable books 1`] = `
 [
-  "notes/_posts/2021-09-20-2021-summer.md",
+  "notes/_posts/2021-09-20-2024-winter.md",
   "---
-title: 2021 Summer
-image: 2021-summer.png
+title: 2024/2025 Winter
+image: 2024-winter.png
 
 bookmarks:
   - title: Quinoa Salad With Chicken, Almonds and Avocado Recipe
@@ -1138,43 +1012,10 @@ bookmarks:
     url: >-
       https://cooking.nytimes.com/recipes/1022447-everything-bagel-smoked-salmon-dip
 
-playlist: 2021 Summer
-spotify: https://open.spotify.com/playlist/5CWFqwcSoRK7AFfWH4nJyL
-tracks:
-  - track: Kill Me
-    artist: Indigo De Souza
-    album: Kill Me
-  - track: In Your Eyes (Reflection)
-    artist: Anjimile, Jay Som
-    album: Reunion
-  - track: Floating
-    artist: Lealani
-    album: Fantastic Planet
-  - track: Creature of Mine
-    artist: Billie Marten
-    album: Flora Fauna
-  - track: Take Care of Yourself
-    artist: The Childlike Empress
-    album: Take Care of Yourself
-  - track: Turned Out I Was Everyone
-    artist: SASAMI
-    album: SASAMI
-  - track: Schatze
-    artist: Ohtis, Stef Chura
-    album: Schatze b/w Failure
-  - track: Lake Song
-    artist: Deeper
-    album: Auto-Pain
-  - track: Lavender
-    artist: Biig Piig
-    album: Lavender
-  - track: Holy Holy - Demo
-    artist: Wye Oak
-    album: Holy Holy (Demo)
 
 ---
 
-The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
+The books I read, playlist I made, and bookmarks I saved during 2024/2025 Winter.
 
 ## Books
 
@@ -1182,16 +1023,7 @@ The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
 
 ## Playlist
 
-- Kill Me - Indigo De Souza
-- In Your Eyes (Reflection) - Anjimile, Jay Som
-- Floating - Lealani
-- Creature of Mine - Billie Marten
-- Take Care of Yourself - The Childlike Empress
-- Turned Out I Was Everyone - SASAMI
-- Schatze - Ohtis, Stef Chura
-- Lake Song - Deeper
-- Lavender - Biig Piig
-- Holy Holy - Demo - Wye Oak
+
 
 ## Bookmarks
 
@@ -1217,10 +1049,10 @@ The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
 
 exports[`action works, disable playlist 1`] = `
 [
-  "notes/_posts/2021-09-20-2021-summer.md",
+  "notes/_posts/2021-09-20-2024-winter.md",
   "---
-title: 2021 Summer
-image: 2021-summer.png
+title: 2024/2025 Winter
+image: 2024-winter.png
 books:
   - title: How to Talk So Little Kids Will Listen
     authors: Joanna Faber, Julie King
@@ -1374,7 +1206,7 @@ bookmarks:
 
 ---
 
-The books I read, playlist I made, and bookmarks I saved during 2021 Summer.
+The books I read, playlist I made, and bookmarks I saved during 2024/2025 Winter.
 
 ## Books
 

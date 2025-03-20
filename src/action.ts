@@ -7,6 +7,13 @@ import { getJsonFile } from "./get-json-file.js";
 import { join } from "path";
 import * as github from "@actions/github";
 
+function slugifyTitle(title: string) {
+  return title
+    .replace(/(\d{4})\/(\d{4})\s([A-Za-z]+)/, "$1-$3") // Format season titles
+    .replace(/[^a-zA-Z0-9]+/g, "-") // Replace non-alphanumeric characters with hyphens
+    .toLowerCase();
+}
+
 export async function action() {
   try {
     const payload = github.context.payload.inputs;
@@ -17,8 +24,8 @@ export async function action() {
 
     validateInputs(title, startDate, endDate);
 
-    const slugifyTitle = title.toLowerCase().replace(/\s/g, "-");
-    const image = `${slugifyTitle}.png`;
+    const slug = slugifyTitle(title);
+    const image = `${slug}.png`;
 
     const {
       bookKeyName,
@@ -70,10 +77,7 @@ export async function action() {
 
     const postsDir = getInput("posts-directory");
 
-    const blogFilePath = join(
-      postsDir,
-      `${endDate}-${slugifyTitle.toLowerCase()}.md`
-    );
+    const blogFilePath = join(postsDir, `${endDate}-${slug}.md`);
 
     await writeFile(blogFilePath, md);
   } catch (error) {

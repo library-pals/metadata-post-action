@@ -31,7 +31,7 @@ beforeEach(() => {
         inputs: {
           "start-date": "2021-06-21",
           "end-date": "2021-09-20",
-          "post-title": "2021 Summer",
+          "post-title": "2024/2025 Winter",
         },
       },
     },
