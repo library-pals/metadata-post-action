@@ -51851,6 +51851,12 @@ var github = __nccwpck_require__(3228);
 
 
 
+function slugifyTitle(title) {
+    return title
+        .replace(/(\d{4})\/(\d{4})\s([A-Za-z]+)/, "$1-$3") // Format season titles
+        .replace(/[^a-zA-Z0-9]+/g, "-") // Replace non-alphanumeric characters with hyphens
+        .toLowerCase();
+}
 async function action() {
     try {
         const payload = github.context.payload.inputs;
@@ -51858,8 +51864,8 @@ async function action() {
         const startDate = payload?.["start-date"] || (0,core.getInput)("start-date");
         const endDate = payload?.["end-date"] || (0,core.getInput)("end-date");
         validateInputs(title, startDate, endDate);
-        const slugifyTitle = title.toLowerCase().replace(/\s/g, "-");
-        const image = `${slugifyTitle}.png`;
+        const slug = slugifyTitle(title);
+        const image = `${slug}.png`;
         const { bookKeyName, bookPath, bookmarkKeyName, bookmarkPath, playlistPath, } = processSources();
         const [bookData, bookmarkData, playlistData] = await Promise.all([
             getJsonFile(bookPath),
@@ -51896,7 +51902,7 @@ async function action() {
             template,
         });
         const postsDir = (0,core.getInput)("posts-directory");
-        const blogFilePath = (0,external_path_.join)(postsDir, `${endDate}-${slugifyTitle.toLowerCase()}.md`);
+        const blogFilePath = (0,external_path_.join)(postsDir, `${endDate}-${slug}.md`);
         await (0,promises_namespaceObject.writeFile)(blogFilePath, md);
     }
     catch (error) {
