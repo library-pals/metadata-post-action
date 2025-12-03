@@ -33,7 +33,7 @@ jobs:
     name: Write metadata post
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Write metadata post
         uses: library-pals/metadata-post-action@v0.1.0
         with:
@@ -74,7 +74,7 @@ jobs:
     name: Write metadata post
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Set post title and dates
         id: set-season
         run: |
@@ -190,7 +190,7 @@ jobs:
     name: Write metadata post
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Write metadata post
         uses: library-pals/metadata-post-action@v0.1.0
         with:
