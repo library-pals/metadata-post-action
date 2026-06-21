@@ -51914,13 +51914,27 @@ async function getJsonFile(path) {
             repo,
             path,
         });
-        if ("content" in data) {
-            const buffer = external_buffer_.Buffer.from(data.content, "base64").toString();
-            return JSON.parse(buffer);
+        // repos.getContent only returns content for files under 1 MB.
+        // For larger files, fall back to the git blobs API using the file's sha.
+        if (!("content" in data)) {
+            return [];
+        }
+        let content;
+        if (data.content) {
+            content = external_buffer_.Buffer.from(data.content, "base64").toString();
+        }
+        else if ("sha" in data) {
+            const { data: blob } = await get_json_file_octokit.rest.git.getBlob({
+                owner,
+                repo,
+                file_sha: data.sha,
+            });
+            content = external_buffer_.Buffer.from(blob.content, "base64").toString();
         }
         else {
             return [];
         }
+        return JSON.parse(content);
     }
     catch (error) {
         throw new Error(`${path}: ${error}`);
