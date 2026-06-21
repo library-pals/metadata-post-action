@@ -8,7 +8,7 @@ export const octokit = new Octokit({
 });
 
 export async function getJsonFile(
-  path?: string
+  path?: string,
 ): Promise<DataFile | undefined | []> {
   if (!path) return [];
   try {
@@ -23,12 +23,25 @@ export async function getJsonFile(
       repo,
       path,
     });
-    if ("content" in data) {
-      const buffer = Buffer.from(data.content, "base64").toString();
-      return JSON.parse(buffer) as DataFile;
+    // repos.getContent only returns content for files under 1 MB.
+    // For larger files, fall back to the git blobs API using the file's sha.
+    if (!("content" in data)) {
+      return [];
+    }
+    let content: string;
+    if (data.content) {
+      content = Buffer.from(data.content, "base64").toString();
+    } else if ("sha" in data) {
+      const { data: blob } = await octokit.rest.git.getBlob({
+        owner,
+        repo,
+        file_sha: data.sha as string,
+      });
+      content = Buffer.from(blob.content, "base64").toString();
     } else {
       return [];
     }
+    return JSON.parse(content) as DataFile;
   } catch (error) {
     throw new Error(`${path}: ${error}`);
   }
