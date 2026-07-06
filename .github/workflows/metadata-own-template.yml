@@ -26,7 +26,7 @@ jobs:
     name: Write metadata post
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Write metadata post
         uses: ./
         with:
